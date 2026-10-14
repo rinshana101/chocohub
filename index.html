@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choco Hub | Homemade Chocolates</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff8ef;
+      color: #3b2118;
+    }
+
+    header {
+      background: #351b14;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #e5b16c;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: #e5b16c;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #30160f, #70432e);
+      color: white;
+      padding: 75px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+      min-height: 520px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content .tagline {
+      color: #e9bd80;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5vw, 65px);
+      line-height: 1.15;
+    }
+
+    h1 span {
+      color: #e9bd80;
+    }
+
+    .hero p {
+      color: #ead8ca;
+      margin: 22px 0;
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e5b16c;
+      color: #351b14;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #f5d09d;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      width: 43%;
+      height: 370px;
+      object-fit: cover;
+      border-radius: 180px 180px 15px 15px;
+      border: 5px solid #ffffff20;
+    }
+
+    .benefits {
+      background: #f0e2d0;
+      padding: 24px 7%;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading small {
+      color: #a66b38;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin-top: 10px;
+    }
+
+    .section-heading p {
+      color: #806b5d;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px #3b21180b;
+      transition: 0.3s;
+      border: 1px solid #eee0d0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 28px #3b21181c;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+    }
+
+    .product-info p {
+      color: #806b5d;
+      font-size: 12px;
+      margin: 8px 0 15px;
+      min-height: 40px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #6d3b23;
+    }
+
+    .order-btn {
+      background: #351b14;
+      color: white;
+      padding: 9px 12px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 11px;
+    }
+
+    .order-btn:hover {
+      background: #8a583b;
+    }
+
+    .about {
+      background: #f0e2d0;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .about img {
+      width: 48%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 38px;
+      margin: 12px 0;
+    }
+
+    .about-content p {
+      color: #806b5d;
+      line-height: 1.9;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .gift {
+      text-align: center;
+      color: white;
+      background: linear-gradient(120deg, #351b14, #77452e);
+      padding: 75px 7%;
+    }
+
+    .gift h2 {
+      font-size: clamp(30px, 4vw, 42px);
+    }
+
+    .gift p {
+      max-width: 550px;
+      margin: 18px auto 25px;
+      color: #ead8ca;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 18px auto 25px;
+      color: #806b5d;
+      font-size: 13px;
+    }
+
+    footer {
+      background: #28130e;
+      color: white;
+      text-align: center;
+      padding: 35px 7%;
+    }
+
+    footer .logo {
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: #cfb7a5;
+      font-size: 12px;
+      margin: 10px 0;
+    }
+
+    footer a {
+      color: #e9bd80;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        gap: 25px;
+      }
+
+      .hero-image {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 0;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 50px 6%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 280px;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+
+      .products {
+        gap: 12px;
+      }
+
+      .product-card img {
+        height: 155px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+
+      .product-info h3 {
+        font-size: 16px;
+      }
+
+      .about {
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .about img {
+        width: 100%;
+        height: 270px;
+      }
+
+      .about-content h2 {
+        font-size: 32px;
+      }
+
+      .order-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#home" class="logo" style="color:white;text-decoration:none">
+      Choco<span>Hub.</span>
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Chocolates</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="tagline">HANDMADE WITH LOVE</div>
+
+      <h1>
+        A Little Bite of
+        <span>Chocolate Heaven.</span>
+      </h1>
+
+      <p>
+        Discover delicious homemade chocolates made with love
+        and care. Every bite brings a little happiness to your
+        day. Make every moment sweeter with Choco Hub!
+      </p>
+
+      <a href="#products" class="btn">Explore Our Chocolates →</a>
+    </div>
+
+    <img
+      class="hero-image"
+      src="https://images.unsplash.com/photo-1548907040-4d42f8a6c3b4?auto=format&fit=crop&w=1000&q=85"
+      alt="Delicious chocolate collection"
+    >
+  </section>
+
+  <div class="benefits">
+    <div>🍫 Handmade with Love</div>
+    <div>🎁 Perfect for Gifting</div>
+    <div>✨ Made for Sweet Moments</div>
+  </div>
+
+  <section id="products">
+    <div class="section-heading">
+      <small>OUR COLLECTION</small>
+      <h2>Discover Our Chocolates</h2>
+      <p>A little sweetness for every chocolate lover.</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=600&q=80"
+          alt="Chocolate truffles"
+          loading="lazy"
+        >
+        <div class="product-info">
+          <h3>Choco Truffles</h3>
+          <p>Rich, smooth and delicious chocolate bites.</p>
+          <div class="product-bottom">
+            <span class="price">₹249</span>
+            <button class="order-btn" data-product="Choco Truffles">
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=600&q=80"
+          alt="Chocolate bars"
+          loading="lazy"
+        >
+        <div class="product-info">
+          <h3>Nutty Choco Bars</h3>
+          <p>Crunchy nuts meet smooth chocolate.</p>
+          <div class="product-bottom">
+            <span class="price">₹199</span>
+            <button class="order-btn" data-product="Nutty Choco Bars">
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80"
+          alt="Chocolate gift box"
+          loading="lazy"
+        >
+        <div class="product-info">
+          <h3>Chocolate Gift Box</h3>
+          <p>A sweet surprise for someone special.</p>
+          <div class="product-bottom">
+            <span class="price">₹499</span>
+            <button class="order-btn" data-product="Chocolate Gift Box">
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img
+          src="https://images.unsplash.com/photo-1575377222312-dd1a5b9c8304?auto=format&fit=crop&w=600&q=80"
+          alt="Chocolate dessert"
+          loading="lazy"
+        >
+        <div class="product-info">
+          <h3>Choco Specials</h3>
+          <p>Special homemade treats for your cravings.</p>
+          <div class="product-bottom">
+            <span class="price">₹299</span>
+            <button class="order-btn" data-product="Choco Specials">
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <img
+      src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=85"
+      alt="Handcrafted chocolates"
+      loading="lazy"
+    >
+
+    <div class="about-content">
+      <div class="tagline" style="color:#a36a37">
+        OUR LITTLE STORY
+      </div>
+
+      <h2>Made with Love, Shared with Happiness.</h2>
+
+      <p>
+        At Choco Hub, our love for chocolate inspires us to
+        create sweet little moments for everyone. Each creation
+        is prepared with care, creativity and attention to detail.
+      </p>
+
+      <p>
+        From everyday treats to thoughtful gifts, we want every
+        chocolate to bring a smile to someone's face.
+        Thank you for supporting our homemade chocolate journey!
+      </p>
+
+      <a href="#contact" class="btn">Contact Us →</a>
+    </div>
+  </section>
+
+  <section class="gift">
+    <h2>Share the Sweetness!</h2>
+
+    <p>
+      Birthdays, anniversaries, festivals or just because.
+      Surprise your loved ones with homemade chocolate gifts
+      from Choco Hub.
+    </p>
+
+    <a href="#contact" class="btn">Order a Sweet Surprise →</a>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-heading">
+      <small>LET'S CONNECT</small>
+      <h2>Ready for Something Sweet?</h2>
+      <p>
+        Have questions or want to order chocolates?
+        Message us and we will help you.
+      </p>
+    </div>
+
+    <button class="btn" id="whatsappOrder">
+      Order on WhatsApp 💬
+    </button>
+  </section>
+
+  <footer>
+    <div class="logo">Choco<span>Hub.</span></div>
+
+    <p>Homemade chocolates, made with love.</p>
+
+    <p>Every bite is a little moment of happiness. 🍫</p>
+
+    <p>
+      Contact us:
+      <a href="#" id="footerWhatsapp">WhatsApp</a>
+    </p>
+
+    <p>© <span id="year"></span> Choco Hub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // IMPORTANT:
+    // Replace this example with your real WhatsApp number.
+    // Include the country code, without + or spaces.
+    // Example for India: 919876543210
+
+    const WHATSAPP_NUMBER = "919876543210";
+
+    function orderChocolate(product) {
+      const message =
+        `Hi Choco Hub! 🍫 I am interested in ordering ${product}. Please share the available options and details.`;
+
+      const whatsappURL =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    }
+
+    document.querySelectorAll("[data-product]").forEach(button => {
+      button.addEventListener("click", () => {
+        orderChocolate(button.dataset.product);
+      });
+    });
+
+    document.getElementById("whatsappOrder").addEventListener("click", () => {
+      orderChocolate("your chocolate collection");
+    });
+
+    document.getElementById("footerWhatsapp").addEventListener("click", event => {
+      event.preventDefault();
+      orderChocolate("your chocolate collection");
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
